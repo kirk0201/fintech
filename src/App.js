@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
-
+import AxiosTest from "./pages/AxiosTest";
+import "./App.css";
+import ArrayMap from "./components/ArrayMap";
+import AppBar from "./components/common/AppBar";
+import Welcome from "./components/Welcome";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import NewsApiPage from "./pages/NewsApiPage";
+import AuthPage from "./pages/AuthPage";
+import AuthResult from "./pages/AuthResult";
+import MainPage from "./pages/MainPage";
+import BalancePage from "./pages/BalancePage";
+import QrCode from "./pages/QrCode";
+import QrCodeReader from "./pages/QrCodeReader";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<AuthPage />} />
+        <Route path="/mainpage" element={<MainPage />} />
+        <Route path="/balance" element={<BalancePage />} />
+        <Route path="/news" element={<NewsApiPage />} />
+        <Route path="/axiosTest" element={<AxiosTest />} />
+        <Route path="/authResult" element={<AuthResult />} />
+        <Route path="/qr" element={<QrCode />} />
+        <Route path="/qrreader" element={<QrCodeReader />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
